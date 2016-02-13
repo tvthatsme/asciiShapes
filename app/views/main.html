@@ -1,13 +1,20 @@
-<!-- area for asii shape -->
+<!-- app/views/main.html -->
 
 <!-- dropdown select for shape type -->
+Shape:
 <input type="text" required></input>
 
 <!-- height of shape -->
-<input type="number" ng-model="shapeHeight" required></input>
+Height:
+<input type="number" ng-model="shapeHeight" ng-change="newHeight()" required></input>
 
 <!-- text box for label in shape -->
-<input type="text" ng-model="shapeLabel"></input>
+Label:
+<input type="text" ng-model="shapeLabel" ng-change="newLabel()"></input>
 
 <!-- row to display the label on -->
-<input type="number" ng-model="labelRow"></input>
+Label Row:
+<input type="number" ng-model="labelRow" ng-change="newLabelRow()"></input>
+
+<!-- area for asii shape -->
+<pre>{{ shape }}</pre>
