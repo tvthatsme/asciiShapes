@@ -501,6 +501,8 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
+  
+  grunt.registerTask('heroku', ['build']);
 
   grunt.registerTask('default', [
     'newer:jshint',
