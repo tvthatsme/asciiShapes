@@ -1,3 +1,5 @@
+/* jshint strict: false, -W117 */
+
 'use strict';
 
 asciiApp.factory('TriangleService', function () {

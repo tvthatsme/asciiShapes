@@ -1,3 +1,5 @@
+/*exported asciiApp, Shape */
+
 'use strict';
 
 /**
@@ -16,10 +18,6 @@ angular.module('asciiApp')
     
     // This is the shape that is currently selected - default to square.
     $scope.shape = SquareService.draw();
-  
-    $scope.selectShape = function() {
-      console.log('a ' + $scope.shape.name + ' was selected');
-    };
   });
 
 var Shape = (function () {
@@ -27,7 +25,11 @@ var Shape = (function () {
     // Set the default height of the shape to 10
     height = 10,
     shapeName = name,
+      
+    // Set the default label of the shape to 'HI' [Requirement]
     label = 'HI',
+      
+    // Set the default label row for the shape to 4 [Requirement]
     labelRow = 4;
   
   return {
