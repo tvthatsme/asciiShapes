@@ -1,73 +1,16 @@
 // bower:scss
 // endbower
 
-/* Define project variables */
-$color-orange: #F95738;
-$color-orangeLight: #EE964B;
-$color-blue: #083D77;
-$color-white: #EEEEEE;
-$color-offWhite: #EBEBD3;
-$color-yellow: #F4D35E;
+@import "variables";
+@import "master";
 
 /*****************************************************************************/
-
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-html {
-  margin: 0;
-  font-family: monospace;
-  background-color: $color-white;
-  width: 100%;
-}
-
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .marketing,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  width: 100%;
-  
-  pre {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-weight: 900;
-    color: $color-offWhite;
-    background-color: $color-blue;
-  }
-  
-  pre.title-top {
-    padding-left: 235px;
-    text-align: left;
-    margin-top: -120px;
-  }
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-  }
 }
 
 /* Custom page footer */

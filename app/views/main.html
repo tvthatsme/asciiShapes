@@ -7,10 +7,10 @@
 </label><br/>
 
 <!-- height of shape -->
-<lablel>
+<label>
   Height:
   <input type="number" ng-model="shape.height" ng-change="shape.setHeight(shape.height)" required></input>
-</lablel>
+</label>
 
 <!-- text box for label in shape -->
 <label>
@@ -25,4 +25,4 @@
 </label>
 
 <!-- area for asii shape -->
-<pre>{{ shape.draw() }}</pre>
+<pre class="shape">{{ shape.draw() }}</pre>
