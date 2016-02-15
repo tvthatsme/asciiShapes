@@ -7,110 +7,65 @@
  * # MainCtrl
  * Controller of the asciiApp
  */
+var asciiApp = 
 angular.module('asciiApp')
-  .controller('MainCtrl', function ($scope) {
-    var defaultHeight = 10,
-      defaultLable = 'HI',
-      defaultLabelRow = 4;
+  .controller('MainCtrl', function ($scope, SquareService, TriangleService, DiamondService, RectangleService) {
   
-    $scope.shape = '';
+    // Define the supported shapes
+    $scope.shapes = [SquareService, TriangleService, DiamondService, RectangleService];
+    
+    // This is the shape that is currently selected - default to square.
+    $scope.shape = SquareService.draw();
   
-    // Choosing the shape is required.
+    $scope.selectShape = function() {
+      console.log('a ' + $scope.shape.name + ' was selected');
+    };
+  });
+
+var Shape = (function () {
+  var
+    // Set the default height of the shape to 10
+    height = 10,
+    shapeName = name,
+    label = 'HI',
+    labelRow = 4;
   
-    // Choosing the height of the shape is required for the user.
-    $scope.shapeHeight = defaultHeight;
-  
-    // Choosing the label should be optional for the user.
-    // Default value = 'HI'
-    $scope.shapeLabel = defaultLable;
-  
-    // Choosing the label row should be optional for the user.
-    // Default value = 4
-    $scope.labelRow = defaultLabelRow;
-  
-    $scope.newHeight = function() {
-      if ($scope.labelRow > $scope.shapeHeight) {
+  return {
+    name: shapeName,
+    height: height,
+    label: label,
+    labelRow: labelRow,
+    
+    setHeight: function (newHeight) {
+      // Check bounds
+      if (labelRow > newHeight) {
         // The label row needs to be adjusted if it is currently greater than 
         // the new shape height.
         // TODO: Should probably notify the user as well.
-        $scope.labelRow = $scope.shapeHeight;
-      } else if ($scope.shapeHeight < 1) {
+        labelRow = newHeight;
+      } else if (newHeight < 1) {
         // TODO: Warn the user.
-        $scope.shapeHeight = 1;
+        newHeight = 1;
       }
       
-      // Re-draw the shape.
-      $scope.shape = draw($scope.shapeHeight, $scope.shapeLabel, $scope.labelRow);
-    };
-  
-    $scope.newLabel = function() {
-      console.log('new label ' + $scope.shapeLabel);
-      
-      // Re-draw the shape.
-      $scope.shape = draw($scope.shapeHeight, $scope.shapeLabel, $scope.labelRow);
-    };
-  
-    $scope.newLabelRow = function() {
+      // Set the new height
+      height = newHeight;
+    },
+    
+    setLabel: function (newLabel) {
+      console.log('new label ' + newLabel);
+      label = newLabel;
+    },
+    
+    setLableRow: function (newLabelRow) {
       // The label row cannot excede the height of the shape
-      if ($scope.labelRow > $scope.shapeHeight) {
+      if (newLabelRow > height) {
         // TODO: Warn the user.
-        $scope.labelRow = $scope.shapeHeight;
-      } else if ($scope.labelRow < 1) {
+        labelRow = height;
+      } else if (newLabelRow < 1) {
         // TODO: Warn the user.
-        $scope.labelRow = 1;
+        labelRow = 1;
       }
-      
-      // Re-draw the shape.
-      $scope.shape = draw($scope.shapeHeight, $scope.shapeLabel, $scope.labelRow);
-    };
-  
-    function draw(height, label, labelRow) {
-      var asciiString = '',
-        printChar = 'X';
-      
-      console.log('Drawing new shape:');
-      console.log('Height: ' + height);
-      console.log('Label: ' + label);
-      console.log('LabelRow: ' + labelRow);
-      
-      // Draw a number of rows
-      for (var i = 1; i <= height; i++) {
-        // Draw the content of the rows
-        
-        // First check if this is a label row
-        if (i === labelRow) {
-          // We are drawing the label row
-          var l;
-          
-          // First print all the letters of the label
-          for (l = 0; l < label.length; l++) {
-            asciiString += (label.substr(l, 1) + ' ');
-          }
-          
-          // If there is space left over, finish the row with regular chars
-          while (l < height) {
-            if (l !== (height - 1)) {
-              asciiString += (printChar + ' ');
-            } else {
-              // Special case for the end of a line
-              asciiString += (printChar + '\n');
-            }
-            l++;
-          }
-        } else {
-          // We are drawing a normal row.
-          for (var j = 1; j <= height; j++) {
-            if (j !== height) {
-              asciiString += (printChar + ' ');
-            } else {
-              // Special case for the end of a line
-              asciiString += (printChar + '\n');
-            }
-          }
-        }
-      }
-      
-      // Return the ascii shape
-      return asciiString;
     }
-  });
+  };
+}());
