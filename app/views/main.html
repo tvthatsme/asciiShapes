@@ -3,26 +3,26 @@
 <!-- dropdown select for shape type -->
 <label>
   Shape:
-  <select ng-model="shape" ng-options="shape.name for shape in shapes" ng-change="selectShape()"></select>
+  <select ng-model="shapeSelected" ng-options="shape.name for shape in shapes" ng-change="selectShape()"></select>
 </label><br/>
 
 <!-- height of shape -->
 <label>
   Height:
-  <input type="number" ng-model="shape.height" ng-change="shape.setHeight(shape.height)" required></input>
+  <input type="number" ng-model="shapeHeight" ng-change="setHeight()" required></input>
 </label>
 
 <!-- text box for label in shape -->
 <label>
   Label:
-  <input type="text" ng-model="shape.label" ng-change="shape.setLabel(shape.label)"></input>
+  <input type="text" ng-model="shapeLabel" ng-change="setLabel()"></input>
 </label>
 
 <!-- row to display the label on -->
 <label>
   Label Row:
-  <input type="number" ng-model="shape.labelRow" ng-change="shape.setLabelRow(shape.labelRow)"></input>
+  <input type="number" ng-model="labelRow" ng-change="setLabelRow()"></input>
 </label>
 
 <!-- area for asii shape -->
-<pre class="shape">{{ shape.draw() }}</pre>
+<pre class="shape">{{ shape }}</pre>

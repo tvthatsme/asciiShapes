@@ -3,26 +3,25 @@
 'use strict';
 
 asciiApp.factory('TriangleService', function () {
-  var Triangle = Object.create(Shape);
+  var Triangle = {};
   
   // Set the name of the Triangle
   Triangle.name = 'Triangle';
   
-  Triangle.draw = function () {
-    console.log('This is going to draw a ' + Triangle.name);
+  Triangle.draw = function (height, label, labelRow) {
     var asciiString = '',
       printChar = 'X',
       numPrintedInRow;
       
       // Draw a number of rows
-      for (var row = 1; row <= Triangle.height; row++) {
-        if (row === Triangle.labelRow) {
+      for (var row = 1; row <= height; row++) {
+        if (row === labelRow) {
           // Drawing a row with a label
           var l;
           
           // First print all the letters of the label
-          for (l = 0; l < Triangle.label.length; l++) {
-            asciiString += (Triangle.label.substr(l, 1) + ' ');
+          for (l = 0; l < label.length; l++) {
+            asciiString += (label.substr(l, 1) + ' ');
           }
           asciiString += '\n';
         } else {

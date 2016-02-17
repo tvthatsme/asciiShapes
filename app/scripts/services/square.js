@@ -3,33 +3,32 @@
 'use strict';
 
 asciiApp.factory('SquareService', function () {
-  var Square = Object.create(Shape);
+  var Square = {};
   
   // Set the name of the square
   Square.name = 'Square';
   
-  Square.draw = function () {
-    console.log('This is going to draw a ' + Square.name + ' with height ' + Square.height);
+  Square.draw = function (height, label, labelRow) {
     var asciiString = '',
       printChar = 'X';
       
       // Draw a number of rows
-      for (var i = 1; i <= Square.height; i++) {
+      for (var i = 1; i <= height; i++) {
         // Draw the content of the rows
         
         // First check if this is a label row
-        if (i === Square.labelRow) {
+        if (i === labelRow) {
           // We are drawing the label row
           var l;
           
           // First print all the letters of the label
-          for (l = 0; l < Square.label.length; l++) {
-            asciiString += (Square.label.substr(l, 1) + ' ');
+          for (l = 0; l < label.length; l++) {
+            asciiString += (label.substr(l, 1) + ' ');
           }
           
           // If there is space left over, finish the row with regular chars
-          while (l < Square.height) {
-            if (l !== (Square.height - 1)) {
+          while (l < height) {
+            if (l !== (height - 1)) {
               asciiString += (printChar + ' ');
             } else {
               // Special case for the end of a line
@@ -39,8 +38,8 @@ asciiApp.factory('SquareService', function () {
           }
         } else {
           // We are drawing a normal row.
-          for (var j = 1; j <= Square.height; j++) {
-            if (j !== Square.height) {
+          for (var j = 1; j <= height; j++) {
+            if (j !== height) {
               asciiString += (printChar + ' ');
             } else {
               // Special case for the end of a line

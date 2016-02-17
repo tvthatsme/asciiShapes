@@ -3,29 +3,28 @@
 'use strict';
 
 asciiApp.factory('RectangleService', function () {
-  var Rectangle = Object.create(Shape);
+  var Rectangle = {};
   
   // Set the name of the Rectangle
   Rectangle.name = 'Rectangle';
   
-  Rectangle.draw = function () {
-    console.log('This is going to draw a ' + Rectangle.name);
+  Rectangle.draw = function (height, label, labelRow) {
     var asciiString = '',
-      length = Math.floor(Rectangle.height * 1.5),
+      length = Math.floor(height * 1.5),
       printChar = 'X';
 
     // Draw a number of rows
-      for (var i = 1; i <= Rectangle.height; i++) {
+      for (var i = 1; i <= height; i++) {
         // Draw the content of the rows
         
         // First check if this is a label row
-        if (i === Rectangle.labelRow) {
+        if (i === labelRow) {
           // We are drawing the label row
           var l;
           
           // First print all the letters of the label
-          for (l = 0; l < Rectangle.label.length; l++) {
-            asciiString += (Rectangle.label.substr(l, 1) + ' ');
+          for (l = 0; l < label.length; l++) {
+            asciiString += (label.substr(l, 1) + ' ');
           }
           
           // If there is space left over, finish the row with regular chars

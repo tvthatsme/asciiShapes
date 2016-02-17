@@ -12,62 +12,66 @@
 var asciiApp = 
 angular.module('asciiApp')
   .controller('MainCtrl', function ($scope, SquareService, TriangleService, DiamondService, RectangleService) {
+    var defaultHeight = 10,
+      defaultLable = 'HI',
+      defaultLabelRow = 4;
+    
+    function reDraw() {
+      $scope.shape = $scope.shapeSelected.draw($scope.shapeHeight, $scope.shapeLabel, $scope.labelRow);
+    }
   
     // Define the supported shapes
     $scope.shapes = [SquareService, TriangleService, DiamondService, RectangleService];
     
-    // This is the shape that is currently selected - default to square.
-    $scope.shape = SquareService.draw();
-  });
-
-var Shape = (function () {
-  var
-    // Set the default height of the shape to 10
-    height = 10,
-    shapeName = name,
-      
-    // Set the default label of the shape to 'HI' [Requirement]
-    label = 'HI',
-      
-    // Set the default label row for the shape to 4 [Requirement]
-    labelRow = 4;
-  
-  return {
-    name: shapeName,
-    height: height,
-    label: label,
-    labelRow: labelRow,
+    $scope.shapeSelected = SquareService;
     
-    setHeight: function (newHeight) {
-      // Check bounds
-      if (labelRow > newHeight) {
+    // This is the shape that is currently selected - default to square.
+    $scope.shape = SquareService.draw(defaultHeight, defaultLable, defaultLabelRow);
+  
+    // Choosing the shape is required.
+  
+    // Choosing the height of the shape is required for the user.
+    $scope.shapeHeight = defaultHeight;
+  
+    // Choosing the label should be optional for the user.
+    // Default value = 'HI'
+    $scope.shapeLabel = defaultLable;
+  
+    // Choosing the label row should be optional for the user.
+    // Default value = 4
+    $scope.labelRow = defaultLabelRow;
+    
+  
+    $scope.setHeight = function() {
+      if ($scope.labelRow > $scope.shapeHeight) {
         // The label row needs to be adjusted if it is currently greater than 
         // the new shape height.
         // TODO: Should probably notify the user as well.
-        labelRow = newHeight;
-      } else if (newHeight < 1) {
+        $scope.labelRow = $scope.shapeHeight;
+      } else if ($scope.shapeHeight < 1) {
         // TODO: Warn the user.
-        newHeight = 1;
+        $scope.shapeHeight = 1;
       }
-      
-      // Set the new height
-      height = newHeight;
-    },
-    
-    setLabel: function (newLabel) {
-      console.log('new label ' + newLabel);
-      label = newLabel;
-    },
-    
-    setLableRow: function (newLabelRow) {
+      reDraw();
+    };
+  
+    $scope.setLabel = function() {
+      reDraw();
+    };
+  
+    $scope.setLabelRow = function() {
       // The label row cannot excede the height of the shape
-      if (newLabelRow > height) {
+      if ($scope.labelRow > $scope.shapeHeight) {
         // TODO: Warn the user.
-        labelRow = height;
-      } else if (newLabelRow < 1) {
+        $scope.labelRow = $scope.shapeHeight;
+      } else if ($scope.labelRow < 1) {
         // TODO: Warn the user.
-        labelRow = 1;
+        $scope.labelRow = 1;
       }
-    }
-  };
-}());
+      reDraw();
+    };
+    
+    $scope.selectShape = function() {
+      reDraw();
+    };
+  });
