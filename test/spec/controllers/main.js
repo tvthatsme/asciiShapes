@@ -29,7 +29,7 @@ describe('Controller: MainCtrl', function () {
       'X X X X X X X X X X\n' +
       'X X X X X X X X X X\n' +
       'X X X X X X X X X X\n' +
-      'X X X X X X X X X X\n');
+      'X X X X X X X X X X');
   });
   
 //  it('should suport a square shape', function () {
