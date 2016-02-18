@@ -32,7 +32,7 @@ describe('Service: TriangleService', function () {
       '   X X X X X X X   \n' +
       '  X X X X X X X X  \n' +
       ' X X X X X X X X X \n' +
-      'X X X X X X X X X X\n'
+      'X X X X X X X X X X'
     );
   });
 });
