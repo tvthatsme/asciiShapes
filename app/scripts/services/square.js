@@ -28,40 +28,40 @@ asciiApp.factory('SquareService', function () {
     for (row = 1; row <= height; row++) {
       if (row === labelRow) {
         // Drawing the label row.
-        var labelRow = '',
+        var labelRowStr = '',
           rowRequiredLength = ((2 * height) - 1),
           labelCharsPrinted = 0;
 
         // Loop until the label row reaches its required length
-        while (labelRow.length < rowRequiredLength) {
+        while (labelRowStr.length < rowRequiredLength) {
           
           // Print the label as a first priority
           if (labelCharsPrinted < label.length) {
             if (labelCharsPrinted === (label.length - 1)) {
               // Print the last character in the label
-              labelRow += label.substr(labelCharsPrinted, 1);
+              labelRowStr += label.substr(labelCharsPrinted, 1);
             } else {
               // Print the character and a space
-              labelRow += (label.substr(labelCharsPrinted, 1) + space);
+              labelRowStr += (label.substr(labelCharsPrinted, 1) + space);
             }
             
             // Increment the number of label characters printed.
             labelCharsPrinted++;
           } else {
             // The label is its entirety has been printed, finish filling the row
-            if (labelRow.substr(0, 1) === space) {
-              labelRow = printChar + labelRow + printChar;
+            if (labelRowStr.substr(0, 1) === space) {
+              labelRowStr = printChar + labelRowStr + printChar;
             } else {
-              labelRow = space + labelRow + space;
+              labelRowStr = space + labelRowStr + space;
             }
           }
         }
         
         // Clean up in case extra space was printed
-        labelRow = labelRow.substr(0, (height*2-1));
+        labelRowStr = labelRowStr.substr(0, (height*2-1));
         
         // Add a new line character and add the whole row to the asciiString
-        asciiString += labelRow + newLine;
+        asciiString += labelRowStr + newLine;
       } else {
         // Drawing a normal row.
         for (var j = 1; j <= height; j++) {
