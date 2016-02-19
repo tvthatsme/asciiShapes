@@ -60,8 +60,13 @@ asciiApp.factory('SquareService', function () {
         // Clean up in case extra space was printed
         labelRowStr = labelRowStr.substr(0, (height*2-1));
         
-        // Add a new line character and add the whole row to the asciiString
-        asciiString += labelRowStr + newLine;
+        // Add a new line character if this isn't the last row
+        if (row < height) {
+          labelRowStr += newLine;
+        }
+
+        // Add the whole row to the asciiString
+        asciiString += labelRowStr;
       } else {
         // Drawing a normal row.
         for (var j = 1; j <= height; j++) {

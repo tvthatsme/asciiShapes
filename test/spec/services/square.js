@@ -118,4 +118,8 @@ describe('Service: SquareService', function () {
       'X X X X X'
     );
   });
+  
+  it('should draw the smallest square possible', function () {
+    expect(SquareService.draw(1, 'SMALL', 1)).toBe('S');
+  })
 });

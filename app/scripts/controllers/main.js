@@ -44,19 +44,19 @@ angular.module('asciiApp')
   
     // Define the gatekeeper to the shape's height
     $scope.setHeight = function(height) {
-      // The label row needs to be adjusted if it is currently greater than 
-      // the new shape height.
-      if ($scope.labelRow > height) {
-        // TODO: Should probably notify the user as well.
-        $scope.labelRow = height;
-      }
-      
-      // Check bounds
+      // Check bounds first
       if (height < 1) {
         // TODO: Warn the user.
         height = 1;
       } else if (height > 100) {
         height = 100;
+      }
+      
+      // The label row needs to be adjusted if it is currently greater than 
+      // the new shape height.
+      if ($scope.labelRow > height) {
+        // TODO: Should probably notify the user as well.
+        $scope.labelRow = height;
       }
       
       // Set the height (with any corrections)

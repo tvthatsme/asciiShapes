@@ -50,4 +50,36 @@ describe('Service: RectangleService', function () {
       'X X X X X X X X X X X X X X X'
     );
   });
+  
+  it('should draw a small rectangle', function () {
+    expect(RectangleService.draw(2, 'TEST', 1)).toBe(
+      'T E S\n' +
+      'X X X'
+    );
+  });
+  
+  it('should draw the smallest rectangle possible', function () {
+    expect(RectangleService.draw(1, 'SMALL', 1)).toBe('S');
+  });
+
+  it('should draw a rectangle with an even-length title and odd-length row', function () {
+    expect(RectangleService.draw(6, 'EVEN', 3)).toBe(
+      'X X X X X X X X X\n' +
+      'X X X X X X X X X\n' +
+      'X X  E V E N  X X\n' +
+      'X X X X X X X X X\n' +
+      'X X X X X X X X X\n' +
+      'X X X X X X X X X'
+    );
+  });
+  
+  it('should do its best to draw a rectangle with a length longer than its width', function () {
+    expect(RectangleService.draw(5, 'LONG LABEL HERE', 2)).toBe(
+      'X X X X X X X\n' +
+      'L O N G   L A\n' +
+      'X X X X X X X\n' +
+      'X X X X X X X\n' +
+      'X X X X X X X'
+    );
+  });
 });

@@ -33,9 +33,6 @@ asciiApp.factory('RectangleService', function () {
 
       // First check if this is a label row and the label has a length
       if ((label.length) && (i === labelRow)) {
-
-        console.log('label ' + label.length);
-
         // Drawing the label row.
         var labelRowStr = '',
           rowRequiredLength = ((2 * length) - 1),
@@ -68,9 +65,14 @@ asciiApp.factory('RectangleService', function () {
 
         // Clean up in case extra space was printed
         labelRowStr = labelRowStr.substr(0, (length * 2 - 1));
+        
+        // Add a new line character if this isn't the last row
+        if (i < height) {
+          labelRowStr += newLine;
+        }
 
-        // Add a new line character and add the whole row to the asciiString
-        asciiString += labelRowStr + newLine;
+        // Add the whole row to the asciiString
+        asciiString += labelRowStr;
       } else {
         // We are drawing a normal row.
         for (var j = 1; j <= length; j++) {
