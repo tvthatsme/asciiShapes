@@ -16,10 +16,7 @@ asciiApp.factory('SquareService', function () {
       row;
     
     // NOTE: Apply a special case for a square
-    //  odd label length
-    //  even height
-    //  height more than label length plus two
-    if (((label.length % 2) === 1) && ((height % 2) === 0) && (height >= (label.length + 2))) {
+    if ((label.length) && ((label.length % 2) !== (height % 2)) && (height >= (label.length + 2))) {
       label = space + label + space;
     }
 

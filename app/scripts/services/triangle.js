@@ -22,6 +22,13 @@ asciiApp.factory('TriangleService', function () {
       // Reinitialize things
       numPrintedInRow = 0;
       rowToPrint = '';
+      
+      // Check the label if on labelRow
+      if ((label.length) && (row === labelRow)) {
+        if (((label.length % 2) !== (charsToPrintInRow % 2)) && (charsToPrintInRow > (label.length + 2))) {
+          label = space + label + space;
+        }
+      }
 
       // Print the number of visible characters
       while (numPrintedInRow < charsToPrintInRow) {

@@ -81,8 +81,40 @@ describe('Service: DiamondService', function () {
       '          '
     );
   });
-
+  
   // Diamond Test 8
+  it('should draw a diamond with an odd-length label on an even-character row', function () {
+    expect(DiamondService.draw(10, 'I', 6)).toBe(
+      '    X     \n' +
+      '   X X    \n' +
+      '  X X X   \n' +
+      ' X X X X  \n' +
+      'X X X X X \n' +
+      ' X  I  X  \n' +
+      '  X X X   \n' +
+      '   X X    \n' +
+      '    X     \n' +
+      '          '
+    );
+  });
+  
+  // Diamond Test 9
+  it('should draw a diamond with an even-length label on an odd-character row', function () {
+    expect(DiamondService.draw(10, 'HI', 5)).toBe(
+      '    X     \n' +
+      '   X X    \n' +
+      '  X X X   \n' +
+      ' X X X X  \n' +
+      'X  H I  X \n' +
+      ' X X X X  \n' +
+      '  X X X   \n' +
+      '   X X    \n' +
+      '    X     \n' +
+      '          '
+    );
+  });
+
+  // Diamond Test 10
   it('should draw a diamond with an odd-length label on an odd-character row', function () {
     expect(DiamondService.draw(10, 'BIG', 5)).toBe(
       '    X     \n' +
@@ -97,9 +129,25 @@ describe('Service: DiamondService', function () {
       '          '
     );
   });
+  
+  // Diamond Test 11
+  it('should draw a diamond with an even-length label on a longer odd-character row', function () {
+    expect(DiamondService.draw(10, 'OF', 5)).toBe(
+      '    X     \n' +
+      '   X X    \n' +
+      '  X X X   \n' +
+      ' X X X X  \n' +
+      'X  O F  X \n' +
+      ' X X X X  \n' +
+      '  X X X   \n' +
+      '   X X    \n' +
+      '    X     \n' +
+      '          '
+    );
+  });
 
-  // Diamond Test 9
-  it('should draw a diamond with an even label length on an odd character row', function () {
+  // Diamond Test 12
+  it('should draw a diamond with an even-label length on a shorter odd-character row', function () {
     expect(DiamondService.draw(7, 'TO', 3)).toBe(
       '   X   \n' +
       '  X X  \n' +
@@ -111,7 +159,7 @@ describe('Service: DiamondService', function () {
     );
   });
   
-  // Diamond Test 10
+  // Diamond Test 13
   it('should draw a diamond without a label', function () {
     expect(DiamondService.draw(10, '', 2)).toBe(
       '    X     \n' +

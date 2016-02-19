@@ -16,14 +16,7 @@ asciiApp.factory('RectangleService', function () {
       newLine = '\n';
 
     // NOTE: Apply a special case for a rectangle with:
-    //  a label with size > 0
-    //  even label length
-    //  odd length
-    //  length more than label length plus two
-    if ((label.length) &&
-      ((label.length % 2) === 0) &&
-      ((length % 2) === 1) &&
-      (length >= (label.length + 2))) {
+    if ((label.length) && ((label.length % 2) !== (length % 2)) && (length >= (label.length + 2))) {
       label = space + label + space;
     }
 
