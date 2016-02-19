@@ -14,7 +14,7 @@ describe('Service: SquareService', function () {
   });
 
   it('should have a name "Square"', function () {
-    expect(SquareService.name).toBe("Square");
+    expect(SquareService.name).toBe('Square');
   });
 
   it('should have a funtion to draw', function () {
@@ -106,6 +106,16 @@ describe('Service: SquareService', function () {
       'X X X X X X X X X X\n' +
       'X X X X X X X X X X\n' +
       'X X X X X X X X X X'
+    );
+  });
+  
+  it('should draw a square without a label', function () {
+    expect(SquareService.draw(5, '', 3)).toBe(
+      'X X X X X\n' +
+      'X X X X X\n' +
+      'X X X X X\n' +
+      'X X X X X\n' +
+      'X X X X X'
     );
   });
 });

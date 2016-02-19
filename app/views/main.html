@@ -1,28 +1,31 @@
 <!-- app/views/main.html -->
 
-<!-- dropdown select for shape type -->
-<label>
-  Shape:
-  <select ng-model="shapeSelected" ng-options="shape.name for shape in shapes" ng-change="selectShape()"></select>
-</label><br/>
+<form name="shapeForm">
+  <!-- dropdown select for shape type -->
+  <label>
+    Shape:
+    <select ng-model="shapeSelected" ng-options="shape.name for shape in shapes" ng-change="selectShape()"></select>
+  </label>
 
-<!-- height of shape -->
-<label>
-  Height:
-  <input type="number" ng-model="shapeHeight" ng-change="setHeight()" required></input>
-</label>
+  <!-- height of shape -->
+  <label>
+    Height:
+    <input type="number" name="height" ng-model="shapeHeight" ng-change="setHeight(shapeHeight)" required></input>
+    <span class="error" ng-show="shapeForm.height.$error.required">Shape height is required</span>
+  </label>
 
-<!-- text box for label in shape -->
-<label>
-  Label:
-  <input type="text" ng-model="shapeLabel" ng-change="setLabel()"></input>
-</label>
+  <!-- text box for label in shape -->
+  <label>
+    Label:
+    <input type="text" ng-model="shapeLabel" ng-change="setLabel(shapeLabel)"></input>
+  </label>
 
-<!-- row to display the label on -->
-<label>
-  Label Row:
-  <input type="number" ng-model="labelRow" ng-change="setLabelRow()"></input>
-</label>
+  <!-- row to display the label on -->
+  <label ng-show="shapeLabel.length > 0">
+    Label Row:
+    <input type="number" name="labelRow" ng-model="labelRow" ng-change="setLabelRow(labelRow)" required></input>
+  </label>
+</form>
 
 <!-- area for asii shape -->
 <pre class="shape">{{ shape }}</pre>

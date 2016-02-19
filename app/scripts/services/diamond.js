@@ -25,7 +25,8 @@ asciiApp.factory('DiamondService', function () {
       
       // Print the number of visible characters
       while (numPrintedInRow < charsToPrintInRow) {
-        if (row === labelRow) {
+        // The diamond is not required to have a label
+        if ((label.length) && (row === labelRow)) {
           // Printing the label row
           
           // Print the label as a first priority

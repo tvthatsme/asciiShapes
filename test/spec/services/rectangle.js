@@ -14,7 +14,7 @@ describe('Service: RectangleService', function () {
   });
 
   it('should have a name "Rectangle"', function () {
-    expect(RectangleService.name).toBe("Rectangle");
+    expect(RectangleService.name).toBe('Rectangle');
   });
 
   it('should have a funtion to draw', function() {
@@ -27,6 +27,21 @@ describe('Service: RectangleService', function () {
       'X X X X X X X X X X X X X X X\n' +
       'X X X X X X X X X X X X X X X\n' +
       'X X X X X X  H I  X X X X X X\n' +
+      'X X X X X X X X X X X X X X X\n' +
+      'X X X X X X X X X X X X X X X\n' +
+      'X X X X X X X X X X X X X X X\n' +
+      'X X X X X X X X X X X X X X X\n' +
+      'X X X X X X X X X X X X X X X\n' +
+      'X X X X X X X X X X X X X X X'
+    );
+  });
+  
+  it('should draw a rectangle without a label', function () {
+    expect(RectangleService.draw(10, '', 4)).toBe(
+      'X X X X X X X X X X X X X X X\n' +
+      'X X X X X X X X X X X X X X X\n' +
+      'X X X X X X X X X X X X X X X\n' +
+      'X X X X X X X X X X X X X X X\n' +
       'X X X X X X X X X X X X X X X\n' +
       'X X X X X X X X X X X X X X X\n' +
       'X X X X X X X X X X X X X X X\n' +

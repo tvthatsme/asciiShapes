@@ -1,3 +1,5 @@
+/* jshint strict: false, -W117 */
+
 'use strict';
 
 asciiApp.factory('SquareService', function () {
@@ -13,20 +15,18 @@ asciiApp.factory('SquareService', function () {
       newLine = '\n',
       row;
     
-    // Trim out any leading or trailing spaces from the label
-    label = label.trim();
-    
     // NOTE: Apply a special case for a square
     //  odd label length
     //  even height
     //  height more than label length plus two
-    if (((label.length % 2) == 1) && ((height % 2) === 0) && (height >= (label.length + 2))) {
+    if (((label.length % 2) === 1) && ((height % 2) === 0) && (height >= (label.length + 2))) {
       label = space + label + space;
     }
 
     // Draw a number of rows
     for (row = 1; row <= height; row++) {
-      if (row === labelRow) {
+      // The square does not need to have a label
+      if ((label.length) && (row === labelRow)) {
         // Drawing the label row.
         var labelRowStr = '',
           rowRequiredLength = ((2 * height) - 1),

@@ -25,7 +25,8 @@ asciiApp.factory('TriangleService', function () {
 
       // Print the number of visible characters
       while (numPrintedInRow < charsToPrintInRow) {
-        if (row === labelRow) {
+        // The triangle does not need to have a length
+        if ((label.length) && (row === labelRow)) {
           // Printing the label row
 
           // Print the label as a first priority

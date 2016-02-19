@@ -15,12 +15,27 @@ asciiApp.factory('RectangleService', function () {
       space = ' ',
       newLine = '\n';
 
+    // NOTE: Apply a special case for a rectangle with:
+    //  a label with size > 0
+    //  even label length
+    //  odd length
+    //  length more than label length plus two
+    if ((label.length) &&
+      ((label.length % 2) === 0) &&
+      ((length % 2) === 1) &&
+      (length >= (label.length + 2))) {
+      label = space + label + space;
+    }
+
     // Draw a number of rows
     for (var i = 1; i <= height; i++) {
       // Draw the content of the rows
 
-      // First check if this is a label row
-      if (i === labelRow) {
+      // First check if this is a label row and the label has a length
+      if ((label.length) && (i === labelRow)) {
+
+        console.log('label ' + label.length);
+
         // Drawing the label row.
         var labelRowStr = '',
           rowRequiredLength = ((2 * length) - 1),

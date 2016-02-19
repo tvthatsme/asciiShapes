@@ -42,32 +42,61 @@ angular.module('asciiApp')
     $scope.labelRow = defaultLabelRow;
     
   
-    $scope.setHeight = function() {
-      if ($scope.labelRow > $scope.shapeHeight) {
-        // The label row needs to be adjusted if it is currently greater than 
-        // the new shape height.
+    // Define the gatekeeper to the shape's height
+    $scope.setHeight = function(height) {
+      // The label row needs to be adjusted if it is currently greater than 
+      // the new shape height.
+      if ($scope.labelRow > height) {
         // TODO: Should probably notify the user as well.
-        $scope.labelRow = $scope.shapeHeight;
-      } else if ($scope.shapeHeight < 1) {
-        // TODO: Warn the user.
-        $scope.shapeHeight = 1;
+        $scope.labelRow = height;
       }
+      
+      // Check bounds
+      if (height < 1) {
+        // TODO: Warn the user.
+        height = 1;
+      } else if (height > 100) {
+        height = 100;
+      }
+      
+      // Set the height (with any corrections)
+      $scope.shapeHeight = height;
+      
+      // Redraw the shape
       reDraw();
     };
   
-    $scope.setLabel = function() {
+    // Define the gatekeeper to the shape's label
+    $scope.setLabel = function(label) {
+      // Make the label all uppercase
+      label = label.toUpperCase();
+      
+      // Trim the label of leading or trailing spaces
+      label = label.trim();
+      
+      $scope.shapeLabel = label;
+      
+      // Redraw the shape
       reDraw();
     };
   
-    $scope.setLabelRow = function() {
+    // Define the gatekeeper to the shape's label row
+    $scope.setLabelRow = function(labelRow) {
       // The label row cannot excede the height of the shape
-      if ($scope.labelRow > $scope.shapeHeight) {
+      if (labelRow > $scope.shapeHeight) {
         // TODO: Warn the user.
-        $scope.labelRow = $scope.shapeHeight;
-      } else if ($scope.labelRow < 1) {
-        // TODO: Warn the user.
-        $scope.labelRow = 1;
+        labelRow = $scope.shapeHeight;
       }
+      
+      if (labelRow < 1) {
+        // TODO: Warn the user.
+        labelRow = 1;
+      }
+      
+      // Set the label row (with any corrections)
+      $scope.labelRow = labelRow;
+      
+      // Redraw the shape
       reDraw();
     };
     

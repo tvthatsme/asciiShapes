@@ -14,7 +14,7 @@ describe('Service: TriangleService', function () {
   });
 
   it('should have a name "Triangle"', function () {
-    expect(TriangleService.name).toBe("Triangle");
+    expect(TriangleService.name).toBe('Triangle');
   });
 
   it('should have a funtion to draw', function() {
@@ -27,6 +27,21 @@ describe('Service: TriangleService', function () {
       '        X X        \n' +
       '       X X X       \n' +
       '      X H I X      \n' +
+      '     X X X X X     \n' +
+      '    X X X X X X    \n' +
+      '   X X X X X X X   \n' +
+      '  X X X X X X X X  \n' +
+      ' X X X X X X X X X \n' +
+      'X X X X X X X X X X'
+    );
+  });
+  
+  it('should draw a triangle without a label', function () {
+    expect(TriangleService.draw(10, '', 4)).toBe(
+      '         X         \n' +
+      '        X X        \n' +
+      '       X X X       \n' +
+      '      X X X X      \n' +
       '     X X X X X     \n' +
       '    X X X X X X    \n' +
       '   X X X X X X X   \n' +

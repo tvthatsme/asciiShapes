@@ -15,7 +15,7 @@ describe('Service: DiamondService', function () {
 
   // Diamond Test 1
   it('should have a name "Diamond"', function () {
-    expect(DiamondService.name).toBe("Diamond");
+    expect(DiamondService.name).toBe('Diamond');
   });
 
   // Diamond Test 2
@@ -63,7 +63,7 @@ describe('Service: DiamondService', function () {
       'T W O\n' +
       ' X X \n' +
       '  X  '
-    )
+    );
   });
 
   // Diamond Test 7
@@ -108,6 +108,22 @@ describe('Service: DiamondService', function () {
       ' X X X \n' +
       '  X X  \n' +
       '   X   '
+    );
+  });
+  
+  // Diamond Test 10
+  it('should draw a diamond without a label', function () {
+    expect(DiamondService.draw(10, '', 2)).toBe(
+      '    X     \n' +
+      '   X X    \n' +
+      '  X X X   \n' +
+      ' X X X X  \n' +
+      'X X X X X \n' +
+      ' X X X X  \n' +
+      '  X X X   \n' +
+      '   X X    \n' +
+      '    X     \n' +
+      '          '
     );
   });
 });
