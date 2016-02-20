@@ -4,7 +4,21 @@
 @import "variables";
 @import "master";
 
+// Use this style sheet to define the responsive characteristics of the app
 
+// The container should max out at 750px and take the whole screen if the
+// size is less than that
+@media screen and (max-width: 750px) {
+  .container {
+    margin-left: 0px;
+  }
+  .title-block {
+    margin-left: 0px;
+  }
+  .site-footer {
+    margin-left: 0px;
+  }
+}
 
 @media screen and (max-width: 552px) {
   /* Resize the title header */

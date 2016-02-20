@@ -121,11 +121,11 @@ select {
   border-bottom: solid 3px $color-orange;
   font-size: 15px;
   background-color: white;
+  transition: border 0.3s;
 }
 
 input[type="number"],
 input[type="text"] {
-  transition: border 0.3s;
   -moz-appearance: none;
   -webkit-appearance: none;
 }
@@ -154,6 +154,7 @@ select {
 }
 
 select:focus {
+  border-bottom: solid 3px $color-blue;
   background-color: $color-white;
 }
 
@@ -228,14 +229,3 @@ select:focus {
 }
 
 // Media Queries
-@media screen and (max-width: 750px) {
-  .container {
-    margin-left: 0px;
-  }
-  .title-block {
-    margin-left: 0px;
-  }
-  .site-footer {
-    margin-left: 0px;
-  }
-}

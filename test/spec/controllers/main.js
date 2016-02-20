@@ -147,16 +147,4 @@ describe('Controller: MainCtrl', function () {
     scope.setLabelRow('');
     expect(scope.labelRow).toBe(1);
   });
-
-  //          X         
-  //       X X X X      
-  //    X X X X X X X    
-  // X X X X H I X X X X
-  // X X X X X X X X X X
-  // X X X X X X X X X X
-  // X X X X X X X X X X
-  //    X X X X X X X   
-  //       X X X X      
-  //          X         
-
 });

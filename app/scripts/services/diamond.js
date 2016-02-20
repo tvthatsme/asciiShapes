@@ -2,48 +2,51 @@
 
 'use strict';
 
+// Service to draw a diamond shape
 asciiApp.factory('DiamondService', function () {
   var Diamond = {};
 
-  // Set the name of the Diamond
+  // Provide the diamond with a name
   Diamond.name = 'Diamond';
 
+  // Draw an ascii diamond
   Diamond.draw = function (height, label, labelRow) {
+    // Define the variables for the function
     var asciiString = '',
       row,
       printChar = 'X',
       space = ' ',
-      numPrintedInRow,
+      newLine = '\n',
+      charsPrintedInRow,
       charsToPrintInRow = 1,
       rowToPrint = '';
 
     // Draw a number of rows
     for (row = 1; row <= height; row++) {
-      // Reinitialize things
-      numPrintedInRow = 0;
+      // Re-initialize things
+      charsPrintedInRow = 0;
       rowToPrint = '';
 
-      // Check the label if on labelRow
+      // If the label should be displayed and we are on the label row...
       if ((label.length) && (row === labelRow)) {
+        // Adjust the label if its length and the row's length clash.
         if (((label.length % 2) !== (charsToPrintInRow % 2)) && (charsToPrintInRow > (label.length + 2))) {
           label = space + label + space;
         }
       }
 
       // Print the number of visible characters
-      while (numPrintedInRow < charsToPrintInRow) {
-        // The diamond is not required to have a label
+      while (charsPrintedInRow < charsToPrintInRow) {
+        // The diamond is not required to have a label.
         if ((label.length) && (row === labelRow)) {
-          // Printing the label row
-
           // Print the label as a first priority
-          if (numPrintedInRow < label.length) {
-            if (numPrintedInRow === (label.length - 1)) {
+          if (charsPrintedInRow < label.length) {
+            if (charsPrintedInRow === (label.length - 1)) {
               // Print the last character in the label
-              rowToPrint += label.substr(numPrintedInRow, 1);
+              rowToPrint += label.substr(charsPrintedInRow, 1);
             } else {
-              // Print the character and a space
-              rowToPrint += (label.substr(numPrintedInRow, 1) + space);
+              // Print a character of the label and a space
+              rowToPrint += (label.substr(charsPrintedInRow, 1) + space);
             }
           } else {
             // The label is its entirety has been printed, finish filling the row
@@ -59,19 +62,19 @@ asciiApp.factory('DiamondService', function () {
         }
 
         // Increment the number of characters printed in the row
-        numPrintedInRow++;
+        charsPrintedInRow++;
       }
 
       // Pad the front of the row with spaces if needed. This will give the
       // block of characters a diamond appearance.
-      if (numPrintedInRow < height) {
-        while (numPrintedInRow < (height / 2)) {
+      if (charsPrintedInRow < height) {
+        while (charsPrintedInRow < (height / 2)) {
           rowToPrint = space + rowToPrint;
-          numPrintedInRow++;
+          charsPrintedInRow++;
         }
       }
 
-      // Pad the back of the row
+      // Pad the back of the row to give the ascii shape a square outline
       while (rowToPrint.length < height) {
         rowToPrint += space;
       }
@@ -81,12 +84,12 @@ asciiApp.factory('DiamondService', function () {
 
       // If this is not the last line, add a new line feed
       if (row !== height) {
-        asciiString += '\n';
+        asciiString += newLine;
       }
 
-      // When finished printing row, recalculate then number to print in the
+      // When finished printing row, recalculate then number to print the
       // next row down.
-      if (row < (height) / 2) {
+      if (row < (height / 2)) {
         charsToPrintInRow++;
       } else {
         charsToPrintInRow--;

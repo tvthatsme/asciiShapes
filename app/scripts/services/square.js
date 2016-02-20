@@ -2,12 +2,14 @@
 
 'use strict';
 
+// Service to draw a square shape
 asciiApp.factory('SquareService', function () {
   var Square = {};
 
-  // Set the name of the square
+  // Provide the square with a name
   Square.name = 'Square';
 
+  // Draw an ascii square
   Square.draw = function (height, label, labelRow) {
     var asciiString = '',
       printChar = 'X',
@@ -15,7 +17,8 @@ asciiApp.factory('SquareService', function () {
       newLine = '\n',
       row;
     
-    // NOTE: Apply a special case for a square
+    // Before we start drawing the square, adjust the label if its length
+    // and the square's length clash.
     if ((label.length) && ((label.length % 2) !== (height % 2)) && (height >= (label.length + 2))) {
       label = space + label + space;
     }
@@ -54,8 +57,8 @@ asciiApp.factory('SquareService', function () {
           }
         }
         
-        // Clean up in case extra space was printed
-        labelRowStr = labelRowStr.substr(0, (height*2-1));
+        // Clean up in case an extra space was printed
+        labelRowStr = labelRowStr.substr(0, ((height * 2) - 1));
         
         // Add a new line character if this isn't the last row
         if (row < height) {
