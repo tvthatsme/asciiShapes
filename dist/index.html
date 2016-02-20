@@ -1,6 +1,6 @@
-<!doctype html> <html> <head> <meta charset="utf-8"> <title>Ascii Shapes</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- favicon links --> <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57.87a2c96f.png"> <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114.e842b6bb.png"> <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72.706e1b22.png"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144.8c9d8ae0.png"> <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/apple-touch-icon-60x60.813769f6.png"> <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon-120x120.e570009c.png"> <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/apple-touch-icon-76x76.69157c44.png"> <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/apple-touch-icon-152x152.63749da6.png"> <link rel="icon" type="image/png" href="images/favicon-196x196.d5965054.png" sizes="196x196"> <link rel="icon" type="image/png" href="images/favicon-96x96.942969e4.png" sizes="96x96"> <link rel="icon" type="image/png" href="images/favicon-32x32.7ef9e45f.png" sizes="32x32"> <link rel="icon" type="image/png" href="images/favicon-16x16.7e5fdd94.png" sizes="16x16"> <link rel="icon" type="image/png" href="images/favicon-128.68ff3da3.png" sizes="128x128"> <meta name="application-name" content="&nbsp;"> <meta name="msapplication-TileColor" content="#FFFFFF"> <meta name="msapplication-TileImage" content="images/mstile-144x144.8c9d8ae0.png"> <meta name="msapplication-square70x70logo" content="images/mstile-70x70.68ff3da3.png"> <meta name="msapplication-square150x150logo" content="images/mstile-150x150.2c4731f6.png"> <meta name="msapplication-wide310x150logo" content="images/mstile-310x150.50092348.png"> <meta name="msapplication-square310x310logo" content="images/mstile-310x310.0e8405f6.png"> <link rel="stylesheet" href="styles/main.d5c8e830.css" media="(max-width: 400px)"> </head> <body ng-app="asciiApp"> <!--[if lte IE 8]>
+<!doctype html> <html> <head> <meta charset="utf-8"> <title>Ascii Shapes</title> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- favicon links --> <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57.87a2c96f.png"> <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114.e842b6bb.png"> <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72.706e1b22.png"> <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144.8c9d8ae0.png"> <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/apple-touch-icon-60x60.813769f6.png"> <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon-120x120.e570009c.png"> <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/apple-touch-icon-76x76.69157c44.png"> <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/apple-touch-icon-152x152.63749da6.png"> <link rel="icon" type="image/png" href="images/favicon-196x196.d5965054.png" sizes="196x196"> <link rel="icon" type="image/png" href="images/favicon-96x96.942969e4.png" sizes="96x96"> <link rel="icon" type="image/png" href="images/favicon-32x32.7ef9e45f.png" sizes="32x32"> <link rel="icon" type="image/png" href="images/favicon-16x16.7e5fdd94.png" sizes="16x16"> <link rel="icon" type="image/png" href="images/favicon-128.68ff3da3.png" sizes="128x128"> <meta name="application-name" content="&nbsp;"> <meta name="msapplication-TileColor" content="#FFFFFF"> <meta name="msapplication-TileImage" content="images/mstile-144x144.8c9d8ae0.png"> <meta name="msapplication-square70x70logo" content="images/mstile-70x70.68ff3da3.png"> <meta name="msapplication-square150x150logo" content="images/mstile-150x150.2c4731f6.png"> <meta name="msapplication-wide310x150logo" content="images/mstile-310x150.50092348.png"> <meta name="msapplication-square310x310logo" content="images/mstile-310x310.0e8405f6.png"> <link rel="stylesheet" href="styles/main.c0a0da06.css"> </head> <body ng-app="asciiApp"> <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]--> <div class="header"> <pre id="title-left">
+    <![endif]--> <!-- Page header --> <div class="header"> <div class="title-block"> <pre id="title-left" style="width: 225px">
                      _  _  
                     (_)(_) 
  _____   ___   ____  _  _  
@@ -8,26 +8,12 @@
 / ___ ||___ |( (___ | || | 
 \_____|(___/  \____)|_||_| 
                            
-    </pre> <pre id="title-right" class="title-top">
-        _                                
-       | |                               
-   ___ | |__   _____  ____   _____   ___ 
-  /___)|  _ \ (____ ||  _ \ | ___ | /___)
- |___ || | | |/ ___ || |_| || ____||___ |
- (___/ |_| |_|\_____||  __/ |_____)(___/ 
-                     |_|                 
-    </pre> </div> <div class="container"> <div ng-view=""></div> </div> <!--
-  <div class="footer">
-    <div class="container">
-      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-    </div>
-  </div>
---> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>! function (A, n, g, u, l, a, r) {
-      A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
-          (A[l].q = A[l].q || []).push(arguments)
-        }, A[l].l = +new Date, a = n.createElement(g),
-        r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
-    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');</script> <script src="scripts/vendor.f65f87ee.js"></script> <script src="scripts/scripts.e7c92f48.js"></script> </body> </html>
+      </pre> <pre id="title-right" class="title-top" style="width: 320px">
+       _                                
+      | |                               
+  ___ | |__   _____  ____   _____   ___ 
+ /___)|  _ \ (____ ||  _ \ | ___ | /___)
+|___ || | | |/ ___ || |_| || ____||___ |
+(___/ |_| |_|\_____||  __/ |_____)(___/ 
+                    |_|                 
+      </pre> </div> </div> <!-- App contents --> <div class="container"> <div ng-view=""></div> </div> <!-- Page footer --> <footer class="site-footer"> <div class="hexagon"></div> <text> All code for this demo can be <a href="https://github.com/tvthatsme/asciiShapes">found on GitHub</a>. </text> </footer> <script src="scripts/vendor.f65f87ee.js"></script> <script src="scripts/scripts.e383b374.js"></script> </body> </html>
