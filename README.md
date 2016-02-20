@@ -22,16 +22,16 @@ It should be impossible to crash the program through bad input. Handle most comm
 
 A sample shape might look like this:
 
-         X
-        X X
-       X X X
-      X X X X
-     X X X X X
-    X X X X X X
-   X X X X X X X
-  X S A M P L E X
- X X X X X X X X X
-X X X X X X X X X X
+             X
+            X X
+           X X X
+          X X X X
+         X X X X X
+        X X X X X X
+       X X X X X X X
+      X S A M P L E X
+     X X X X X X X X X
+    X X X X X X X X X X
 
 
 
