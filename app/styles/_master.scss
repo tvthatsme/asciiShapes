@@ -1,5 +1,9 @@
-*, *:before, *:after {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -7,6 +11,8 @@ html {
   font-family: monospace;
   background-color: $color-white;
   width: 100%;
+  height: 100%;
+  background-image: url(../images/hexagon.png);
 }
 
 .browsehappy {
@@ -19,34 +25,65 @@ html {
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
-.shape {
+label {
   float: left;
-  width: 100%;
+  width: 50%;
+  font-size: 1.5em;
+  color: $color-blue;
 }
 
 // Custom page header
 ///////////////////////////////////////////////////////////////////////////////
 .header {
   width: 100%;
-  min-width: 100%;
-  
+  height: 120px;
+  color: $color-offWhite;
+  background-color: $color-blue;
+//  text-align: center;
   pre {
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 20px;
     padding-right: 20px;
     font-weight: 900;
-    color: $color-offWhite;
-    background-color: $color-blue;
   }
-  
   pre.title-top {
     padding-left: 235px;
     text-align: left;
     margin-top: -120px;
   }
+}
+
+// App container and title block
+///////////////////////////////////////////////////////////////////////////////
+.container {
+  float: left;
+  width: 100%;
+  min-height: calc(100% - 120px);
+  max-width: 750px;
+  margin-left: calc(50% - 375px);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  //equal to footer height
+  margin-bottom: -45px;
+}
+
+.container:after {
+  content: "";
+  display: block;
+}
+
+.title-block {
+//  display: inline-block;
+  float: left;
+  width: 100%;
+  min-height: calc(100% - 120px);
+  max-width: 750px;
+  margin-left: calc(50% - 375px);
 }
 
 // Input styling
@@ -57,6 +94,8 @@ input[type="text"] {
   border: none;
   border-bottom: solid 2.5px $color-orange;
   transition: border 0.3s;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 input[type="number"]:focus,
@@ -67,10 +106,10 @@ input[type="text"].focus {
 }
 
 //turn off number input spinners
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 // Select styling
@@ -88,17 +127,84 @@ select {
   font-size: 15px;
 }
 
-select:after {
-  position: absolute;
-  content: "\f0dd";
-  font-family: FontAwesome;
-  right: 10px;
-  top: 50px;
-}
-
 // Box to display the shape in
 ///////////////////////////////////////////////////////////////////////////////
 .shape {
+  float: left;
   width: 100%;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px; // Make sure the horizontal scroll doesnt overlap text
+  margin-bottom: 45px;
+  text-align: center;
+  overflow: scroll;
+}
+
+// Footer
+///////////////////////////////////////////////////////////////////////////////
+.site-footer,
+.container:after {
+  height: 45px;
+}
+
+.site-footer {
+  position: relative;
+  float: left;
+  background: $color-blue;
+  color: $color-offWhite;
+  padding: 5px;
+  width: 100%;
+  max-width: 750px;
+  margin-left: calc(50% - 375px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text {
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 10px;
+  }
+  a:visited {
+    color: $color-offWhite;
+  }
+}
+
+.hexagon {
+  position: relative;
+  float: left;
+  width: 45px;
+  height: 25.98px;
+  background-color: $color-orange;
+  margin: 12.99px 0;
+  margin-top: -10px;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 22.5px solid transparent;
+  border-right: 22.5px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 12.99px solid $color-orange;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 12.99px solid $color-orange;
+}
+
+// Media Queries
+@media screen and (max-width: 750px) {
+  .container {
+    margin-left: 0px;
+  }
+  .title-block {
+    margin-left: 0px;
+  }
+  .site-footer {
+    margin-left: 0px;
+  }
 }

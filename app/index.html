@@ -45,8 +45,11 @@
   <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+  
+  <!-- Page header -->
   <div class="header">
-    <pre id="title-left">
+    <div class="title-block">
+      <pre id="title-left">
                      _  _  
                     (_)(_) 
  _____   ___   ____  _  _  
@@ -54,8 +57,8 @@
 / ___ ||___ |( (___ | || | 
 \_____|(___/  \____)|_||_| 
                            
-    </pre>
-    <pre id="title-right" class="title-top">
+      </pre>
+      <pre id="title-right" class="title-top">
         _                                
        | |                               
    ___ | |__   _____  ____   _____   ___ 
@@ -63,34 +66,22 @@
  |___ || | | |/ ___ || |_| || ____||___ |
  (___/ |_| |_|\_____||  __/ |_____)(___/ 
                      |_|                 
-    </pre>
+      </pre>
+    </div>
   </div>
 
+  <!-- App contents -->
   <div class="container">
     <div ng-view=""></div>
   </div>
-
-<!--
-  <div class="footer">
-    <div class="container">
-      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-    </div>
-  </div>
--->
-
-
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-  <script>
-    ! function (A, n, g, u, l, a, r) {
-      A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
-          (A[l].q = A[l].q || []).push(arguments)
-        }, A[l].l = +new Date, a = n.createElement(g),
-        r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
-    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
-  </script>
+  
+  <!-- Page footer -->
+  <footer class="site-footer">
+    <div class="hexagon"></div>
+    <text>
+      All code for this demo can be <a href="https://github.com/tvthatsme/asciiShapes">found on GitHub</a>.
+    </text>
+  </footer>
 
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
