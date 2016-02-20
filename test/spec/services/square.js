@@ -109,7 +109,7 @@ describe('Service: SquareService', function () {
   // Square Test 10
   it('should draw the smallest square possible', function () {
     expect(SquareService.draw(1, 'SMALL', 1)).toBe('S');
-  })
+  });
 
   // Square Test 11
   it('should draw a square with an odd-lenth label on an even-length row', function () {

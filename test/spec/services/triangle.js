@@ -66,7 +66,7 @@ describe('Service: TriangleService', function () {
       '    X    \n' +
       '   X X   \n' +
       '  X X X  \n' +
-      '  B R 0  \n' +
+      '  B R O  \n' +
       'X X X X X'
     );
   });
