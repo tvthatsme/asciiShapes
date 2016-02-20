@@ -11,19 +11,27 @@
   <label>
     Height:
     <input type="number" name="height" ng-model="shapeHeight" ng-change="setHeight(shapeHeight)" required></input>
-    <span class="error" ng-show="shapeForm.height.$error.required">Shape height is required</span>
+    <span class="error" ng-show="shapeForm.height.$error.required">
+      Shape height is required
+    </span>
   </label>
 
   <!-- text box for label in shape -->
   <label>
     Label:
     <input type="text" ng-model="shapeLabel" ng-change="setLabel(shapeLabel)"></input>
+    <span class="error" ng-show="shapeLabelMsg.length > 0">
+      {{ shapeLabelMsg }}
+    </span>
   </label>
 
   <!-- row to display the label on -->
   <label id="labelRow" ng-show="shapeLabel.length > 0">
     Label Row:
     <input type="number" name="labelRow" ng-model="labelRow" ng-change="setLabelRow(labelRow)" required></input>
+    <span class="error" ng-show="labelRowMsg.length > 0">
+      {{ labelRowMsg }}
+    </span>
   </label>
 </form>
 

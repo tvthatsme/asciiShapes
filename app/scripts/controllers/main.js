@@ -36,10 +36,14 @@ angular.module('asciiApp')
     // Choosing the label should be optional for the user.
     // Default value = 'HI'
     $scope.shapeLabel = defaultLable;
+    
+    $scope.shapeLabelMsg = '';
   
     // Choosing the label row should be optional for the user.
     // Default value = 4
     $scope.labelRow = defaultLabelRow;
+    
+    $scope.labelRowMsg = '';
     
   
     // Define the gatekeeper to the shape's height
@@ -57,6 +61,9 @@ angular.module('asciiApp')
       if ($scope.labelRow > height) {
         // TODO: Should probably notify the user as well.
         $scope.labelRow = height;
+        $scope.labelRowMsg = 'Adjusting label row to fit in shape.';
+      } else {
+        $scope.labelRowMsg = '';
       }
       
       // Set the height (with any corrections)
@@ -86,6 +93,9 @@ angular.module('asciiApp')
       if (labelRow > $scope.shapeHeight) {
         // TODO: Warn the user.
         labelRow = $scope.shapeHeight;
+        $scope.labelRowMsg = 'Label Row cannot excede the shape height.';
+      } else {
+        $scope.labelRowMsg = '';
       }
       
       if (labelRow < 1) {

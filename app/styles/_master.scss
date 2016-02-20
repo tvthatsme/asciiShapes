@@ -30,9 +30,29 @@ body {
 
 label {
   float: left;
-  width: 50%;
+  width: 100%;
   font-size: 1.5em;
   color: $color-blue;
+//  border: 1px solid black;
+  line-height: 45px;
+  padding: 10px;
+  font-size: 1.5em;
+  
+  // Span for user messages
+  span {
+    float: left;
+    width: calc(100% - 20px);
+    margin-top: 5px;
+    padding: 5px;
+    color: $color-blue;
+    line-height: 20px;
+    font-size: 14px;
+    background-color: $color-yellow;
+  }
+}
+
+*:focus {
+  outline: none;
 }
 
 // Custom page header
@@ -47,24 +67,15 @@ label {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 0;
-//    padding-left: 20px;
-//    padding-right: 20px;
     font-weight: 900;
   }
   pre.title-top {
-//    padding-left: 235px;
-//    text-align: left;
     margin-top: -120px;
   }
 }
 
 .title-block {
   display: inline-block;
-//  float: left;
-//  width: 100%;
-//  min-height: calc(100% - 120px);
-//  max-width: 750px;
-//  margin-left: calc(50% - 375px);
 }
 
 // App container
@@ -97,13 +108,23 @@ label {
   border-top: 5px solid $color-orange;
 }
 
-// Input styling
+// Input and select styling
 ///////////////////////////////////////////////////////////////////////////////
 input[type="number"],
-input[type="text"] {
+input[type="text"],
+select {
+  float: right;
+  width: 110px;
   padding: 10px;
+  margin-right: 20px;
   border: none;
-  border-bottom: solid 2.5px $color-orange;
+  border-bottom: solid 3px $color-orange;
+  font-size: 15px;
+  background-color: white;
+}
+
+input[type="number"],
+input[type="text"] {
   transition: border 0.3s;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -113,7 +134,8 @@ input[type="number"]:focus,
 input[type="number"].focus,
 input[type="text"]:focus,
 input[type="text"].focus {
-  border-bottom: solid 2.5px $color-blue;
+  border-bottom: solid 3px $color-blue;
+  background-color: $color-white;
 }
 
 //turn off number input spinners
@@ -123,19 +145,16 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-// Select styling
-///////////////////////////////////////////////////////////////////////////////
 select {
-  position: relative;
-  padding: 10px;
-  border: none;
-  border-bottom: solid 2.5px $color-orange;
   overflow: hidden;
   border-radius: 0px;
   // Get rid of the rounded corners
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
-  font-size: 15px;
+}
+
+select:focus {
+  background-color: $color-white;
 }
 
 // Box to display the shape in
@@ -143,6 +162,7 @@ select {
 .shape {
   float: left;
   width: 100%;
+  margin-top: 10px;
   padding-top: 20px;
   padding-bottom: 10px; // Make sure the horizontal scroll doesnt overlap text
   margin-bottom: 45px;

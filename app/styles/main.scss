@@ -4,10 +4,9 @@
 @import "variables";
 @import "master";
 
-/*****************************************************************************/
 
 
-@media screen and (max-width: 559px) {
+@media screen and (max-width: 552px) {
   /* Resize the title header */
   #title-right {
     padding-left: 0;
@@ -22,5 +21,45 @@
   .container {
     // Make sure that the container stays under the header
     min-height: calc(100% - 210px);
+  }
+}
+
+// Screen size is less than 370px wide
+@media screen and (min-width: 370px) {
+  input[type="number"],
+  input[type="text"],
+  select {
+    width: 145px;
+  }
+}
+
+// Screen size is less than 420px wide
+@media screen and (min-width: 420px) {
+  input[type="number"],
+  input[type="text"],
+  select {
+    width: 195px;
+  }
+}
+
+// Screen size is less than 552px wide
+// This is the first point the the header becomes one line
+@media screen and (min-width: 552px) {
+  label {
+    width: 50%;
+  }
+  
+  input[type="number"],
+  input[type="text"],
+  select {
+    width: calc(100% - 20px);
+  }
+}
+
+@media screen and (min-width: 650px) {
+  input[type="number"],
+  input[type="text"],
+  select {
+    width: 145px;
   }
 }
