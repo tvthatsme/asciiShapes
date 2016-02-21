@@ -13,7 +13,12 @@
     Height:
     <input type="number" name="height" ng-model="shapeHeight" ng-change="setHeight(shapeHeight)" required></input>
     <span class="error" ng-show="shapeForm.height.$error.required">
-      Shape height is required
+      <i class="fa fa-exclamation-triangle"></i>
+      Shape height is required.
+    </span>
+    <span class="error" ng-show="shapeHeightMsg.length > 0">
+      <i class="fa fa-exclamation-triangle"></i>
+      {{ shapeHeightMsg }}
     </span>
   </label>
 
@@ -22,7 +27,6 @@
     Label:
     <input type="text" ng-model="shapeLabel" ng-change="setLabel(shapeLabel)"></input>
     <span class="error" ng-show="shapeLabelMsg.length > 0">
-      {{ shapeLabelMsg }}
     </span>
   </label>
 
@@ -31,6 +35,7 @@
     Label Row:
     <input type="number" name="labelRow" ng-model="labelRow" ng-change="setLabelRow(labelRow)" required></input>
     <span class="error" ng-show="labelRowMsg.length > 0">
+      <i class="fa fa-exclamation-triangle"></i>
       {{ labelRowMsg }}
     </span>
   </label>

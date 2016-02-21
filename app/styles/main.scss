@@ -6,9 +6,9 @@
 
 // Use this style sheet to define the responsive characteristics of the app
 
-// The container should max out at 750px and take the whole screen if the
+// The container should max out at 1000px and take the whole screen if the
 // size is less than that
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1000px) {
   .container {
     margin-left: 0px;
   }
@@ -70,10 +70,22 @@
   }
 }
 
+// Screen size is less than 650px wide
 @media screen and (min-width: 650px) {
   input[type="number"],
   input[type="text"],
   select {
     width: 145px;
+  }
+}
+
+// Screen size is less than 750px wide
+@media screen and (min-width: 750px) {
+  label {
+    width: 350px;
+  }
+  // Scoot the odd labels more to the middle
+  label:nth-child(2n+1) {
+    margin-left: calc(50% - 350px);
   }
 }

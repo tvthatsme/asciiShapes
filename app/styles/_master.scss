@@ -33,11 +33,9 @@ label {
   width: 100%;
   font-size: 1.5em;
   color: $color-blue;
-//  border: 1px solid black;
   line-height: 45px;
   padding: 10px;
   font-size: 1.5em;
-  
   // Span for user messages
   span {
     float: left;
@@ -60,7 +58,7 @@ label {
 .header {
   width: 100%;
   height: 120px;
-  color: $color-offWhite;
+  color: $color-white;
   background-color: $color-blue;
   text-align: center;
   pre {
@@ -85,27 +83,25 @@ label {
   float: left;
   width: 100%;
   min-height: calc(100% - 120px);
-  max-width: 750px;
-  margin-left: calc(50% - 375px);
+  max-width: 1000px;
+  margin-left: calc(50% - 500px);
   background-color: white;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   //equal to footer height
   margin-bottom: -45px;
-}
-
-.container:after {
-  content: "";
-  display: block;
-}
-
-.container:before {
-  position: absolute;
-  top: -5px;
-  left: 0;
-  content: '';
-  width: 100%;
-  border-top: 5px solid $color-orange;
+  &:after {
+    content: "";
+    display: block;
+  }
+  &:before {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    content: '';
+    width: 100%;
+    border-top: 5px solid $color-orange;
+  }
 }
 
 // Input and select styling
@@ -113,6 +109,7 @@ label {
 input[type="number"],
 input[type="text"],
 select {
+  position: relative;
   float: right;
   width: 110px;
   padding: 10px;
@@ -122,20 +119,19 @@ select {
   font-size: 15px;
   background-color: white;
   transition: border 0.3s;
-}
-
-input[type="number"],
-input[type="text"] {
+  // Get rid of the rounded corners
   -moz-appearance: none;
   -webkit-appearance: none;
-}
-
-input[type="number"]:focus,
-input[type="number"].focus,
-input[type="text"]:focus,
-input[type="text"].focus {
-  border-bottom: solid 3px $color-blue;
-  background-color: $color-white;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus,
+  &.focus {
+    border-bottom: solid 3px $color-blue;
+    background-color: $color-white;
+  }
 }
 
 //turn off number input spinners
@@ -145,19 +141,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-select {
-  overflow: hidden;
-  border-radius: 0px;
-  // Get rid of the rounded corners
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px;
-}
-
-select:focus {
-  border-bottom: solid 3px $color-blue;
-  background-color: $color-white;
-}
-
 // Box to display the shape in
 ///////////////////////////////////////////////////////////////////////////////
 .shape {
@@ -165,7 +148,8 @@ select:focus {
   width: 100%;
   margin-top: 10px;
   padding-top: 20px;
-  padding-bottom: 10px; // Make sure the horizontal scroll doesnt overlap text
+  // Make sure the horizontal scroll doesnt overlap text
+  padding-bottom: 10px;
   margin-bottom: 45px;
   text-align: center;
   overflow: scroll;
@@ -182,11 +166,11 @@ select:focus {
   position: relative;
   float: left;
   background: $color-blue;
-  color: $color-offWhite;
+  color: $color-white;
   padding: 5px;
   width: 100%;
-  max-width: 750px;
-  margin-left: calc(50% - 375px);
+  max-width: 1000px;
+  margin-left: calc(50% - 500px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text {
     font-size: 14px;
@@ -194,7 +178,7 @@ select:focus {
     padding-left: 10px;
   }
   a:visited {
-    color: $color-offWhite;
+    color: $color-white;
   }
 }
 
@@ -206,6 +190,8 @@ select:focus {
   background-color: $color-orange;
   margin: 12.99px 0;
   margin-top: -10px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .hexagon:before,
@@ -218,14 +204,16 @@ select:focus {
 }
 
 .hexagon:before {
+  position: absolute;
   bottom: 100%;
+  left: 0;
   border-bottom: 12.99px solid $color-orange;
 }
 
 .hexagon:after {
+  position: absolute;
   top: 100%;
+  left: 0;
   width: 0;
   border-top: 12.99px solid $color-orange;
 }
-
-// Media Queries
