@@ -38,6 +38,29 @@ A sample shape might look like this:
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
 
+## Installation
+
+Make sure Ruby, Compass, Node, and Git are installed on your system.
+
+https://www.ruby-lang.org/en/documentation/installation/
+http://compass-style.org/install/
+https://nodejs.org/en/
+http://git-scm.com/
+
+Complete the remaining steps from your favorite version of command line:
+
+Make sure bower is installed.
+`$ npm install -g bower`
+
+Get the repository from GitHub.
+`$ git clone https://github.com/tvthatsme/asciiShapes.git`
+
+Install the required packages.
+`$ npm install`
+
+`$ bower install`
+
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
