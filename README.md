@@ -1,5 +1,4 @@
-<p><markdown>
-#Markdown Live Editor#
+
 # Ascii Shapes
 
 This is a simple web application to draw ascii shapes
@@ -74,4 +73,3 @@ Running `grunt test` will run the unit tests with karma.
   [2]: http://compass-style.org/install/
   [3]: https://nodejs.org/en/
   [4]: http://git-scm.com/
-</markdown></p>
