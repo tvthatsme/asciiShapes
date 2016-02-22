@@ -41,23 +41,25 @@ version 0.15.1.
 
 ## Installation
 
-Make sure [Ruby][1], [Compass][2], [Node][3], and [Git][4] are installed on your system. Then complete the remaining steps from your favorite version of command line.
+Make sure [Ruby][1], [Compass][2], [Node][3] (at least version 0.10.0 or higher), and [Git][4] are installed on your system. Then complete the remaining steps from your favorite version of command line.
 
 Make sure bower is installed.
-
-`$ npm install -g bower`
+```
+npm install -g bower
+```
 
 
 Get the repository from GitHub.
-
-`$ git clone https://github.com/tvthatsme/asciiShapes.git`
+```
+git clone https://github.com/tvthatsme/asciiShapes.git
+```
 
 
 Install the required packages.
-
-`$ npm install`
-
-`$ bower install`
+```
+npm install
+bower install
+```
 
 
 ## Build & development
